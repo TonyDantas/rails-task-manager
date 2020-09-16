@@ -1,0 +1,31 @@
+<div class="container rounded mt-3">
+  <div class="card text-center">
+    <div class="card-header text-center">
+      <h1><%= @task.title %></h1>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Task Details</h5>
+      <p class="card-text"><%= @task.details %>.</p>
+
+      <p>
+        <% if @task.completed %>
+          <i class="far fa-check-square">  This task is completed!</i>
+        <%else%>
+          <i class="far fa-square">  This task is not completed...</i>
+        <% end %>
+
+      </p>
+      <p class="btn btn-primary">
+        <%= link_to 'All Tasks', tasks_path %>
+      </p>
+
+      <p class="btn btn-warning">
+        <%= link_to 'Edit this Task', edit_task_path(@task) %>
+      </p>
+
+      <p class="btn btn-danger">
+        <%= link_to 'Remove this Task', task_path(@task), method: :delete, data: { confirm: 'Do you really wanna delete this task?' } %>
+      </p>
+    </div>
+  </div>
+</div>
